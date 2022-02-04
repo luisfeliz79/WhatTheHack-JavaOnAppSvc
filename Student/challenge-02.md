@@ -21,7 +21,7 @@ Create a Web App running on an App Service instance and deploy the app. Choose a
 
 It's possible to deploy a jar file to App Service through [Maven](https://docs.microsoft.com/en-us/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux#configure-the-maven-plugin), but that would require you to change the pom file. An alternative is the [ZIP deployment](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip).
 
-Connection String: The SQL DB connection strings can be found on the Azure SQL DB page of your Azure portal under Settings --> Connection strings --> JDBC
+** DB Connection String:** The SQL DB connection strings can be found on the Azure SQL DB page of your Azure portal under Settings --> Connection strings --> JDBC
 
 ## Learning Resources
 
