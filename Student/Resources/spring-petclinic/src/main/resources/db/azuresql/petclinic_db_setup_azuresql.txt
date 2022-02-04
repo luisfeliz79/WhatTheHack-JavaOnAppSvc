@@ -22,4 +22,21 @@
 	as it is configured by default. 
 
 5)  When you deploy to App Service, make sure to add the following Application Settings
-    AZSQL_USER, AZSQL_PASS, AZSQL_URL, JAVA_OPTS with value -Dspring.profiles.active=azuresql
+    AZSQL_USER, AZSQL_PASS, AZSQL_URL, JAVA_OPTS. Following is an example
+    
+    Application Settings:
+    
+    Name: AZSQL_URL
+    Value: jdbc:sqlserver://<mypetclinic>.database.windows.net:1433;database=<mydb> 
+    
+    Name: JAVA_OPTS
+    Value: -Dspring.profiles.active=azuresql
+    
+    Name: AZSQL_USER
+    Value: mydbuser 
+    
+    Name: AZSQL_PASS
+    Value: mydbpassword
+    
+    
+    
