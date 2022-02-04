@@ -13,7 +13,7 @@ Create a Web App running on an App Service instance and deploy the app. Choose a
 ## Success Criteria
 
 1. Verify the application is working by creating a new owner, a new pet and a new visit through the new webapp
-1. Connect to the database through a `mysql` client
+1. Connect to the database through a sql client or the Query Editor pane on the Azure SQL DB page from your Azure Portal
 1. Verify that the tables include the newly created entities (owner/pet/visit)
 1. No files should be modified for this challenge
 
