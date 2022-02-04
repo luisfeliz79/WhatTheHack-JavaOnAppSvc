@@ -14,7 +14,7 @@ Create an Application Insights instance and connect the application running on t
 
 1. Verify the application is working by creating a new owner, a new pet and a new visit through the new webapp
 1. Verify that Application Insights is collecting metrics and logs
-1. The Application Map in Application Insights contains the App Service instance and the MySQL database
+1. The Application Map in Application Insights contains the App Service instance and the SQL database
 1. No files should be modified for this challenge
 
 ## Tips
