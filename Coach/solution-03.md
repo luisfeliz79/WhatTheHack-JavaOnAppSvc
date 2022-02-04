@@ -4,15 +4,7 @@
 
 ## Notes & Guidance
 
-- There's a number of different methods to deploy a Key Vault instance, you can use the included [keyvault.bicep](./Solutions/keyvault.bicep) file for that. The bicep file creates the Key Vault, adds the passed database parameters as secrets, allows the web app to connect through its managed identity and also updates the app settings to use the Key Vault secrets.
-
-    ```shell
-    KEYVAULT=`az deployment group create -g $RG -f Solutions/keyvault.bicep -p \
-        mysqlUser="$MYSQL_USER" \
-        mysqlPassword="$MYSQL_PASS" \
-        mysqlUrl="$MYSQL_URL" \
-        --query properties.outputs.keyVaultName.value -o tsv`
-    ```
+- There's a number of different methods to deploy a Key Vault instance, but for the purpose of this hack you can create it from the Azure portal.
 
 - In case that things go catastrophically wrong and you need to recreate the Key Vault, you might  run into errors, as by default Key Vaults are soft-deleted. You'd need to purge it first.
 
