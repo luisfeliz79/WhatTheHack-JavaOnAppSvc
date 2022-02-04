@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+For building the VM template, see [vmtemplate-build.md](./vmtemplate-build.md).
+
 The bicep file [allinone.bicep](./Solutions/allinone.bicep) contains all the required resources. You can run it with the following command (requires a recent az cli client).
 
 ```shell
