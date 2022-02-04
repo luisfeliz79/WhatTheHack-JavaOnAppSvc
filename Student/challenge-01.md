@@ -13,7 +13,7 @@ Create an AzureSQL Database and make sure that the application (which is still r
 ## Success Criteria
 
 1. Verify the application is working by creating a new owner, a new pet and a new visit
-1. Connect to the database through a AzureSQL/SQLServer client (If you do not have a client installed, you can also use the "Query Editor" available from your Azure SQL DB page on the Azure Portal)
+1. Connect to the database through a SQL client (If you do not have a client installed, you can also use the "Query Editor" available from your Azure SQL DB page on the Azure Portal)
 1. Verify that the tables include the newly created entities (owner/pet/visit)
 1. No files should be modified for this challenge
 
