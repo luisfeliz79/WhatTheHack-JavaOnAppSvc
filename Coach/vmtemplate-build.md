@@ -5,8 +5,8 @@
 The students can either work locally on their workstations or deploy a Java development machine VM in Azure using the provided template.  There is no need to do both.  We recommend using the Java Developer VM deployed in Azure as this provides a known-to-work common environment.
 
   - The following bash & powershell scripts can be provided to students to deploy the Build VM in Azure. Advise students to use one or the other depending on their platform.
-	```bash
-	# Bash Script
+	```Linux Bash
+	# Linux Bash
 	RG="javahack-RG"  #Change as appropriate
 	LOCATION="EastUS"  # Change as appropriate
 	az group create --name $RG --location $LOCATION
@@ -14,7 +14,7 @@ The students can either work locally on their workstations or deploy a Java deve
     	-f wth-java-environment.json 
 
 	```
-	```Powershell
+	```Windows
 	# Powershell Script
 	$RG="javahack-RG"  #Change as appropriate
 	$LOCATION="EastUS"  # Change as appropriate
