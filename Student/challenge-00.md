@@ -21,5 +21,7 @@ Examine the code base which is a slightly modified version of the quintessential
 ## Learning Resources
 
 - [Spring Petclinic](./Resources/spring-petclinic/README.md)
+- For building a VM from template, see [vmtemplate-build.md](../Coach/vmtemplate-build.md).
+- For connecting to the VM, see [connect-to-vm-instructions.md](./connect-to-vm-instructions.md)
 
 [Next Challenge - Head in the cloud, feet on the ground >](./challenge-01.md)
