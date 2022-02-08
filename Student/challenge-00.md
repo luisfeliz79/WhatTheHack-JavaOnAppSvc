@@ -6,6 +6,8 @@
 
 The objective of this WTH is to take a typical Spring Boot application and host that completely on Azure **without making any changes to the code**. Before we start this journey, let's get introduced to the application.
 
+Objective of this challenge is to run the application locally.
+
 ## Description
 
 Unpack the `spring-petclinic.zip` that's provided to you by your coach into a folder on your machine.
