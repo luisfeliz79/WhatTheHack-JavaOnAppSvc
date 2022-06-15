@@ -15,15 +15,16 @@
  */
 
 package org.springframework.samples.petclinic.system;
-
+import org.springframework.samples.petclinic.PetClinicApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
 
 @Controller
 class WelcomeController {
 
 	@GetMapping("/")
-	public String welcome() {
+	public String welcome(Model model) {
 
 		// Outputs the current active profile to system out and makes it
 		// available to Thyme Leaf
