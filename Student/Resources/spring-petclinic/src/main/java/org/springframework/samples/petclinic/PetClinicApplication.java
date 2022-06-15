@@ -27,6 +27,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import java.util.Properties;
 
 /**
  * PetClinic Spring Boot Application.
@@ -36,7 +37,19 @@ import org.springframework.context.annotation.Profile;
  */
 @SpringBootApplication(proxyBeanMethods = false)
 public class PetClinicApplication {
+
+	static Properties properties = System.getProperties();
+	public static String profile;
+
 	public static void main(String[] args) {
+
+		// Gets the current Active spring profile as specified on the command line.
+		if (properties.getProperty("spring.profiles.active") == null) {
+			profile = "Default";
+		} else {
+			profile = properties.getProperty("spring.profiles.active");
+		}
+
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
 }
