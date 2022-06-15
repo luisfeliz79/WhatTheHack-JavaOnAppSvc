@@ -24,6 +24,14 @@ class WelcomeController {
 
 	@GetMapping("/")
 	public String welcome() {
+
+		// Outputs the current active profile to system out and makes it
+		// available to Thyme Leaf
+		System.out.println("Welcome controller");		
+		System.out.println("Active Profile: " + PetClinicApplication.profile);
+	
+		model.addAttribute("profile",PetClinicApplication.profile);
+
 		return "welcome";
 	}
 

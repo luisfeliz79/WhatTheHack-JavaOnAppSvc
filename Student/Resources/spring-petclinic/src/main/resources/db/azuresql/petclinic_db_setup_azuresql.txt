@@ -8,35 +8,98 @@
 
 3) (One time only) Run the data.sql script under src/main/resources/db/azuresql/dbscripts to insert test records into the database.
 
-4) Run the app with `spring.profiles.active=azuresql` (e.g. as a System property via the command
-   line, but any way that sets that property in a Spring Boot app should work).
-   
-   E.g:
-   
-   	mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=azuresql -DAZSQL_URL=jdbc:sqlserver://<your_dbservername>.database.windows.net:1433;database=<your_dbname> -DAZSQL_USER=<your_db_admin_user> -DAZSQL_PASS=<your_db_password>"
+4) Choose your authentication method
 
-	*The SQL_URL in the above command can be found from the Azure Portal's SQL Database page under 
-	Settings --> Connection Strings --> JDBC
+	Using a SQL Username and Password
 
-	N.B. the "petclinic" database has to exist for the app to work with the JDBC URL value
-	as it is configured by default. 
+    * Run the app with `spring.profiles.active=azuresql` (e.g. as a System property via the command line, but any way that sets that property in a Spring Boot app should work).
+    
+    E.g:
+    
+        mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=azuresql -DAZSQL_URL=jdbc:sqlserver://<your_dbservername>.database.windows.net:1433;database=<your_dbname> -DAZSQL_USER=<your_db_admin_user> -DAZSQL_PASS=<your_db_password>"
 
-5)  When you deploy to App Service, make sure to add the following Application Settings
-    AZSQL_USER, AZSQL_PASS, AZSQL_URL, JAVA_OPTS. Following is an example
+        *The SQL_URL in the above command can be found from the Azure Portal's SQL Database page under 
+        Settings --> Connection Strings --> JDBC
+
+        N.B. the "petclinic" database has to exist for the app to work with the JDBC URL value
+        as it is configured by default. 
+
+    * When you deploy to App Service, make sure to add the following Application Settings
+        AZSQL_USER, AZSQL_PASS, AZSQL_URL, JAVA_OPTS. Following is an example
+        
+        Application Settings:
+        
+        Name: AZSQL_URL
+        Value: jdbc:sqlserver://<mypetclinic>.database.windows.net:1433;database=<mydb> 
+        
+        Name: JAVA_OPTS
+        Value: -Dspring.profiles.active=azuresql
+        
+        Name: AZSQL_USER
+        Value: mydbuser 
+        
+        Name: AZSQL_PASS
+        Value: mydbpassword
     
-    Application Settings:
     
-    Name: AZSQL_URL
-    Value: jdbc:sqlserver://<mypetclinic>.database.windows.net:1433;database=<mydb> 
+
+
+Using a Managed Identity
+
+    * Run the app with `spring.profiles.active=azuresqlmsi` (e.g. as a System property via the command
+    line, but any way that sets that property in a Spring Boot app should work).
     
-    Name: JAVA_OPTS
-    Value: -Dspring.profiles.active=azuresql
+    E.g:
     
-    Name: AZSQL_USER
-    Value: mydbuser 
+        mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=azuresqlmsi -DAZSQL_URL=jdbc:sqlserver://<your_dbservername>.database.windows.net:1433;database=<your_dbname>;authentication=ActiveDirectoryMSI"
+
+        *The SQL_URL in the above command can be found from the Azure Portal's SQL Database page under 
+        Settings --> Connection Strings --> JDBC
+
+        N.B. the "petclinic" database has to exist for the app to work with the JDBC URL value
+        as it is configured by default. 
+
+    *  When you deploy to App Service, make sure to add the following Application Settings
+        AZSQL_URL, JAVA_OPTS. Following is an example
+        
+        Application Settings:
+        
+        Name: AZSQL_URL
+        Value: jdbc:sqlserver://<mypetclinic>.database.windows.net:1433;database=<mydb> 
+        
+        Name: JAVA_OPTS
+        Value: -Dspring.profiles.active=azuresql
     
-    Name: AZSQL_PASS
-    Value: mydbpassword
+    * Ensure the managed identity has been enabled
+
+
+Using a Service Principal with Secret
+
+    * Run the app with `spring.profiles.active=azuresqlsp` (e.g. as a System property via the command line, but any way that sets that property in a Spring Boot app should work).
     
+    E.g:
     
-    
+        mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=azuresqlsp -DAZSQL_URL=jdbc:sqlserver://<your_dbservername>.database.windows.net:1433;database=<your_dbname>;authentication=ActiveDirectoryServicePrincipal -DAZSQL_USER=<appid> -DAZSQL_PASS=<secret>"
+
+        *The SQL_URL in the above command can be found from the Azure Portal's SQL Database page under 
+        Settings --> Connection Strings --> JDBC
+
+        N.B. the "petclinic" database has to exist for the app to work with the JDBC URL value
+        as it is configured by default. 
+
+    * When you deploy to App Service, make sure to add the following Application Settings
+        AZSQL_USER, AZSQL_PASS, AZSQL_URL, JAVA_OPTS. Following is an example
+        
+        Application Settings:
+        
+        Name: AZSQL_URL
+        Value: jdbc:sqlserver://<mypetclinic>.database.windows.net:1433;database=<mydb> 
+        
+        Name: JAVA_OPTS
+        Value: -Dspring.profiles.active=azuresql
+        
+        Name: AZSQL_USER
+        Value: appid
+        
+        Name: AZSQL_PASS
+        Value: secret
